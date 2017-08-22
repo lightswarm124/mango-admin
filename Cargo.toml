@@ -1,0 +1,8 @@
+[package]
+name = "mango-admin"
+version = "0.1.0"
+authors = ["yenwel"]
+
+[dependencies]
+web3 = {version = "*", git = "https://github.com/yenwel/rust-web3"}
+argparse = "0.2.1"
