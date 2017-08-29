@@ -1,18 +1,26 @@
 extern crate web3;
 extern crate clap;
 
-use clap::{Arg, App, SubCommand};
+use clap::{Arg, App, SubCommand, AppSettings};
 
 fn main() {
     let matches = App::new("mango-admin")
                     .version("1.0")
                     .author("Yen")
+                    .usage("Usage: $0 [command]")
+                    .setting(AppSettings::SubcommandRequired)
                     .arg(Arg::with_name("repo")
                         .short("R")
                         .long("repo")
                         .value_name("REPO")
                         .help("Repository address")
                         .takes_value(true))
+                    subcommand(SubCommand::with_name("status").about("Check status of repository"))
+                    subcommand(SubCommand::with_name("status").about("Check status of repository"))
+                    subcommand(SubCommand::with_name("status").about("Check status of repository"))
+                    subcommand(SubCommand::with_name("status").about("Check status of repository"))
+                    subcommand(SubCommand::with_name("status").about("Check status of repository"))
+                    .get_matches();
                     /*.arg(Arg::with_name("INPUT")
                                .help("Sets the input file to use")
                                .required(true)
@@ -28,7 +36,6 @@ fn main() {
                                       .arg(Arg::with_name("debug")
                                           .short("d")
                                           .help("print debug information verbosely")))*/
-                          .get_matches();
 
 
    /*  .usage('Usage: $0 [command]')
