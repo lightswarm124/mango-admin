@@ -3,8 +3,10 @@ name = "mango-admin"
 version = "0.1.0"
 authors = ["yenwel"]
 
-[dependencies]
-web3 = {version = "*", git = "https://github.com/yenwel/rust-web3"}
+[dependencies.web3]
+version = "*"
+git = "https://github.com/yenwel/rust-web3"
+features = ["ipc"]
 
 [dependencies.clap]
 version = "2.19"

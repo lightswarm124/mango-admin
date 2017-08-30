@@ -2,6 +2,7 @@ extern crate web3;
 extern crate clap;
 
 use clap::{App, AppSettings, Arg, SubCommand};
+use web3::futures::Future;
 
 fn main() {
   let matches = App::new("mango-admin")
@@ -34,17 +35,34 @@ fn main() {
     .subcommand(
       SubCommand::with_name("status").about("Check status of repository"),
     )
+    .subcommand(SubCommand::with_name("create").about("Create repository"))
     .subcommand(
-      SubCommand::with_name("status").about("Create repository"),
+      SubCommand::with_name("obsolete").about("Mark repository obsolete"),
     )
     .subcommand(
-      SubCommand::with_name("status").about("Mark repository obsolete"),
+      SubCommand::with_name("authorize").about("Authorize account with write access"),
     )
     .subcommand(
-      SubCommand::with_name("status").about("Authorize account with write access"),
-    )
-    .subcommand(
-      SubCommand::with_name("status").about("Deauthorize account"),
+      SubCommand::with_name("deauthorize").about("Deauthorize account"),
     )
     .get_matches();
+
+  let repo: Vec<&str> = matches.values_of("repo").unwrap().collect();
+  let admin: Vec<&str> = matches.values_of("admin").unwrap().collect();
+  let account: Vec<&str> = matches.values_of("account").unwrap().collect();
+
+  let (_el, transport) = web3::transports::Ipc::new("./jsonrpc.ipc").unwrap();
+  let web3 = web3::Web3::new(transport);
+
+  match matches.subcommand_name() {
+    Some("status") => {}
+    Some("create") => {}
+    Some("obsolete") => {}
+    Some("authorize") => {}
+    Some("deauthorize") => {}
+    _ => {}
+  }
+
+
+
 }
