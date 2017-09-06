@@ -55,7 +55,9 @@ fn main() {
   let web3 = web3::Web3::new(transport);
 
   match matches.subcommand_name() {
-    Some("status") => {}
+    Some("status") => {
+      let contract = web3::contract::Contract::new(web3.eth());
+    }
     Some("create") => {}
     Some("obsolete") => {}
     Some("authorize") => {}
