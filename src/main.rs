@@ -64,7 +64,4 @@ fn main() {
     Some("deauthorize") => {}
     _ => {}
   }
-
-
-
 }
